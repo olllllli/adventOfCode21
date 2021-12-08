@@ -1,0 +1,11 @@
+To uniquely identify
+0:  get(|{size 6} U {7}| == 6 && {size 6} != 9)
+1:  Unique size 2
+2:  get(|{size 5} U {4}| == 7)
+3:  get(|{size 5} U {1}| == 5)
+4:  Unique size 4
+5:  get(|{size 5} U {4}| == 6 && {size 5} != 3)
+6:  get(|{size 6} U {7}| == 7)
+7:  Unique size 3
+8:  Unique size 7
+9:  get(|{size 6} - {3}| == 1)
