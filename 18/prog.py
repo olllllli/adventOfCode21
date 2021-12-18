@@ -1,5 +1,6 @@
 import math
-from typing import Any, Tuple
+from __future__ import annotations
+from typing import Tuple
 
 class SnailfishNumber:
     def __init__(self, num: str) -> None:
@@ -51,7 +52,7 @@ class SnailfishNumber:
                     break
 
     # finds an explosive sfn, and returns it, or None if none were found
-    def findExplosive(self, depth=0) -> Any:
+    def findExplosive(self, depth=0) -> SnailfishNumber | None:
         if self.isRegular:  # shouldnt ever really be the case
             return None
 
@@ -74,7 +75,7 @@ class SnailfishNumber:
 
     # gets the regular straight after the regular of the explosive
     # returns (seenExplosive, SnailfishNumber | None)
-    def findClosestOnRight(self, explosive, seenExplosive: bool) -> Tuple[bool, Any]:
+    def findClosestOnRight(self, explosive, seenExplosive: bool) -> Tuple[bool, SnailfishNumber | None]:
         # go left to right
         if not self.isRegular:  # check if its in either branch
             seenExplosive, found = self.left.findClosestOnRight(explosive, seenExplosive)
@@ -99,7 +100,7 @@ class SnailfishNumber:
 
     # gets the regular straight before the regular of the explosive
     # returns (seenExplosive, SnailfishNumber | None)
-    def findClosestOnLeft(self, explosive, seenExplosive: bool) -> Tuple[bool, Any]:
+    def findClosestOnLeft(self, explosive, seenExplosive: bool) -> Tuple[bool, SnailfishNumber | None]:
         # go right to left
         if not self.isRegular:  # check if its in either branch
             seenExplosive, found = self.right.findClosestOnLeft(explosive, seenExplosive)
@@ -172,7 +173,7 @@ class SnailfishNumber:
             return f"[{str(self.left)},{str(self.right)}]"
 
     # overload addition
-    def __add__(self, other) -> Any:
+    def __add__(self, other) -> SnailfishNumber:
         result = SnailfishNumber(f"[{str(self)},{str(other)}]")
         result.reduce()
         return result
