@@ -1,0 +1,4 @@
+mul x 0
+add y 1
+mul y 0
+mul y 1

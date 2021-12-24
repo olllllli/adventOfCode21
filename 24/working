@@ -1,0 +1,37 @@
+0 ((prevz / 1) * (26 if ((prevz % 26) + 11 != w) else 1))  +  ((w + 8) if ((prevz % 26) + 11 != w) else 0)
+
+1 ((prevz / 1) * (26 if ((prevz % 26) + 14 != w) else 1))  +  ((w + 13) if ((prevz % 26) + 14 != w) else 0)
+
+2 ((prevz / 1) * (26 if ((prevz % 26) + 10 != w) else 1))  +  ((w + 2) if ((prevz % 26) + 10 != w) else 0)
+
+3 ((prevz / 26) * (26 if ((prevz % 26) + 0 != w) else 1))  +  ((w + 7) if ((prevz % 26) + 0 != w) else 0)
+
+4 ((prevz / 1) * (26 if ((prevz % 26) + 12 != w) else 1))  +  ((w + 11) if ((prevz % 26) + 12 != w) else 0)
+
+5 ((prevz / 1) * (26 if ((prevz % 26) + 12 != w) else 1))  +  ((w + 4) if ((prevz % 26) + 12 != w) else 0)
+
+6 ((prevz / 1) * (26 if ((prevz % 26) + 12 != w) else 1))  +  ((w + 13) if ((prevz % 26) + 12 != w) else 0)
+
+7 ((prevz / 26) * (26 if ((prevz % 26) + -8 != w) else 1))  +  ((w + 13) if ((prevz % 26) + -8 != w) else 0)
+
+8 ((prevz / 26) * (26 if ((prevz % 26) + -9 != w) else 1))  +  ((w + 10) if ((prevz % 26) + -9 != w) else 0)
+
+9 ((prevz / 1) * (26 if ((prevz % 26) + 11 != w) else 1))  +  ((w + 1) if ((prevz % 26) + 11 != w) else 0)
+    give up on finding a range for above
+
+10 ((prevz / 26) * (26 if ((prevz % 26) + 0 != w) else 1))  +  ((w + 2) if ((prevz % 26) + 0 != w) else 0)
+    again as below
+
+11 ((prevz / 26) * (26 if ((prevz % 26) + -5 != w) else 1))  +  ((w + 14) if ((prevz % 26) + -5 != w) else 0)
+    just multiply the range by 26 again lol, it will work because of the division and modulo
+
+12 ((prevz / 26) * (26 if ((prevz % 26) + -6 != w) else 1))  +  ((w + 6) if ((prevz % 26) + -6 != w) else 0)
+    need this to be >= 13 and <= 21                             case
+    26 * 13 <= pz < 26 * 22 && pz >= 7 and (pz % 26) <= 15      0       7 <= (pz % 26) <= 15
+    26 * 6 <= pz < 26 * 15 && pz >= 7 and (pz % 26) <= 15       7..15
+
+
+13 ((prevz / 26) * (26 if ((prevz % 26) + -12 != w) else 1))  +  ((w + 14) if ((prevz % 26) + -12 != w) else 0)
+	for this to be 0, prevz <= 25 and (prevz % 26) - 12 == w
+    hence w + 12 == prevz % 26, so prevz >= 13 and (prevz % 26) <= 21
+    so 13 <= prevz <= 21
